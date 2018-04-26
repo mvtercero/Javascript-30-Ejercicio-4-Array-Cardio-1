@@ -74,14 +74,16 @@
     //   6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     //   https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
-    //     const category = document.querySelector('.mw-category');
-    //     const links = Array.from(category.querySelectorAll('a'));
-    //     const de = links
-    //                     .map(link => link.textContent)
-    //                     .filter(streetName => streetName.includes('de'));
+        // const category = document.querySelector('.mw-category');
+        // const links = Array.from(category.querySelectorAll('a'));
+        // const de = links
+        //                 .map(link => link.textContent)
+        //                 .filter(streetName => streetName.includes('de'));
 
-      // 7. sort Exercise
-      //Sort the people alphabetically by last name
+
+        
+    // 7. sort Exercise
+    //Sort the people alphabetically by last name
 
       const people = ['Beck, Morris', 'Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra, Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Biondo, Frank', 'Birrell, Augustine', 'Black, Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William'];
       
@@ -111,24 +113,18 @@
 
         console.table(alpha);
 
-    //     const alpha = people.sort((personA, personB) => {
-    //         const personALastName = personA.split(', ')[0];
-    //         const personBLastName = personB.split(', ')[0];
-    //         return personALastName > personBLastName ? 1 : -1;
-    //   });
+
+    // 8. Reduce Exercise
+    // Sum up the instances of each of these
+
+    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
 
 
-
-
-    //   // 8. Reduce Exercise
-    //   // Sum up the instances of each of these
-      const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-
-      const transportation = data.reduce(function(obj, item) {
-        if (!obj[item]) {
-          obj[item] = 0;
+    const transportation = data.reduce(function (accumulator, currentValue) {
+        if (!accumulator.hasOwnProperty(currentValue)) {
+            accumulator[currentValue] = 0;
         }
-        obj[item]++;
-        return obj;
-      }, {});
-      console.log(transportation);
+        accumulator[currentValue]++;
+        return accumulator;
+    }, {});
+    console.log(transportation);
